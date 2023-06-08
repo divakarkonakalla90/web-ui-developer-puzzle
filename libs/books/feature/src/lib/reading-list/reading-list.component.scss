@@ -20,6 +20,10 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  &--finished {
+    color: $pink-accent;
+  }
 }
 
 .reading-list-item--cover {
@@ -30,7 +34,7 @@
 
 .reading-list-item--details {
   flex: 1;
-  min-width: 0;
+  min-width: 8rem;
   margin-right: $spacing-xxs;
 }
 

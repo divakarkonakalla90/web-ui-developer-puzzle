@@ -4,10 +4,23 @@
       <img class="reading-list-item--cover" [src]="book.coverUrl" [alt]="book.title" />
     </div>
     <div class="reading-list-item--details">
-      <strong class="reading-list-item--details--title">{{ book.title }}</strong>
+      <strong
+        class="reading-list-item--details--title"
+        [matTooltip]="book.title"
+      >
+        {{ book.title }}
+      </strong>
       <div class="reading-list-item--details--author">
         {{ book.authors.join(',') }}
       </div>
+    </div>
+    <div
+      *ngIf="book?.finished"
+      class="reading-list-item--finished"
+    >
+      <span>
+        Finished at {{ book?.finishedDate | date:'medium'}}
+      </span>
     </div>
     <div>
       <button
@@ -18,6 +31,17 @@
         (click)="removeFromReadingList(book)"
       >
         <mat-icon>remove_circle</mat-icon>
+      </button>
+    </div>
+    <div>
+      <button
+        mat-icon-button
+        color="primary"
+        [attr.aria-label]="'Finish ' + book.title + ' from My Reading List'"
+        [matTooltip]="'Finish ' + book.title + ' from My Reading List'"
+        (click)="markBookAsRead(book)"
+      >
+        <mat-icon>{{ book.finished ? 'check_circle' : 'add_task' }}</mat-icon>
       </button>
     </div>
   </div>
