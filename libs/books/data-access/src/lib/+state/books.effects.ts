@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -14,7 +14,7 @@ export class BooksEffects {
       switchMap((action) =>
         this.http.get<Book[]>(`/api/books/search?q=${action.term}`).pipe(
           map((data) => BooksActions.searchBooksSuccess({ books: data })),
-          catchError((error) => of(BooksActions.searchBooksFailure({ error })))
+          catchError((error: HttpErrorResponse) => of(BooksActions.searchBooksFailure({ error })))
         )
       )
     )
