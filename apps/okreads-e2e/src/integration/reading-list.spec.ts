@@ -11,4 +11,16 @@ describe('When: I use the reading list feature', () => {
       'My Reading List'
     );
   });
+
+  it('Then: I should see a snackbar message', () => {
+    cy.get('input[type="search"]').type('javascript');
+
+    cy.get('form').submit();
+
+    cy.get('button[aria-label^="Want to Read"]').eq(0).click({force:true});
+
+    cy.get('.mat-snack-bar-container').should('be.visible');
+
+    cy.get('.reading-list-content').should('exist');
+  })
 });
