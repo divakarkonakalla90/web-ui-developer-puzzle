@@ -7,7 +7,7 @@ import {
 } from './reading-list.reducer';
 import { createBook, createReadingListItem } from '@tmo/shared/testing';
 
-describe('Books Reducer', () => {
+describe('Reading List Reducer', () => {
   describe('valid Books actions', () => {
     let state: State;
 
@@ -50,6 +50,26 @@ describe('Books Reducer', () => {
       const result: State = reducer(state, action);
 
       expect(result.ids).toEqual(['A', 'B', 'C']);
+    });
+
+    it('removeFromReadingList should do book removal from the state', () => {
+      const action = ReadingListActions.removeFromReadingList({
+        item: createReadingListItem('C')
+      });
+
+      const result: State = reducer(state, action);
+
+      expect(result.ids).toEqual(['A', 'B']);
+    });
+
+    it('successAddToReadingList should do book addition to the state', () => {
+      const action = ReadingListActions.addToReadingList({
+        book: createBook('B')
+      });
+
+      const result: State = reducer(state, action);
+
+      expect(result.ids).toEqual(['A', 'B']);
     });
   });
 
