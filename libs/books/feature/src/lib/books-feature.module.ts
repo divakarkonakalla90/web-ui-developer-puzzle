@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BooksDataAccessModule } from '@tmo/books/data-access';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +22,7 @@ const EXPORTS = [
 @NgModule({
   imports: [
     CommonModule,
+    MatTooltipModule,
     MatButtonModule,
     MatBadgeModule,
     MatIconModule,

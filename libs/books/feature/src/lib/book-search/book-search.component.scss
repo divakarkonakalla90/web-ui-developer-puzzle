@@ -17,7 +17,7 @@ form {
 .book {
   display: flex;
   flex-direction: column;
-  margin: 2px;
+  margin: $spacing-xxs;
   padding: $spacing-xxs;
   background-color: $gray10;
 }
@@ -35,6 +35,12 @@ form {
 
 .book--content--cover {
   margin-right: $spacing-xxs;
+
+  img {
+    max-width: 10vw;
+    min-width: 10vw;
+    min-height: 30vh;
+  }
 }
 
 .book--content--info {
@@ -42,6 +48,7 @@ form {
   display: flex;
   flex-direction: column;
   font-size: 0.8rem;
+  line-height: 1.4;
 
   > div {
     margin-bottom: $spacing-xxs;
@@ -66,7 +73,7 @@ form {
   text-align: center;
   align-items: center;
   justify-content: center;
-  min-height: 50vh;
-  font-size: 1.5rem;
-  color: $gray40;
+  min-height: 60vh;
+  font-size: 2rem;
+  color: $gray60;
 }

@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SharedTestingModule } from '@tmo/shared/testing';
-
 import { TotalCountComponent } from './total-count.component';
 import { BooksFeatureModule } from '@tmo/books/feature';
 
