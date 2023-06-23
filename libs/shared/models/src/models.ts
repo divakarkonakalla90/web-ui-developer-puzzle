@@ -9,7 +9,7 @@ export interface Book {
 }
 
 export interface ReadingListItem extends Omit<Book, 'id'> {
-  bookId: string;
+  bookId?: string;
   finished?: boolean;
   finishedDate?: string;
 }

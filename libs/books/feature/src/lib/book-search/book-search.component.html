@@ -41,11 +41,11 @@
               mat-flat-button
               color="primary"
               (click)="addBookToReadingList(book)"
-              aria-label="Want to Read"
-              matTooltip="Want to Read"
+              [attr.aria-label]="book.finished ?'Finished' : 'Want to Read'"
+              [matTooltip]="book.finished ?'Finished' : 'Want to Read'"
               [disabled]="book.isAdded"
             >
-              Want to Read
+              {{ book.isFinished ? 'Finished' : 'Want to Read' }}
             </button>
           </div>
         </div>

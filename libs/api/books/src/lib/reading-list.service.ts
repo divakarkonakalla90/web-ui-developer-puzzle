@@ -28,4 +28,15 @@ export class ReadingListService {
       return list.filter(x => x.bookId !== id);
     });
   }
+
+  async markBookAsRead(book: ReadingListItem, bookId: string): Promise<void> {
+    this.storage.update(books => {
+      const bookIndex = books.findIndex(x => x.bookId === bookId);
+      if(bookIndex > -1){
+        books[bookIndex] = book;
+      }
+
+      return books;
+    });
+  }
 }
